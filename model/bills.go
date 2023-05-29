@@ -18,51 +18,17 @@ type (
 
 	// Bill schema
 	Bill struct {
-		ID             string `json:"id"`
-		Name           string `json:"name"`
-		Description    string `json:"description"`
-		Icon           string `json:"icon"`
-		HasType        bool   `json:"has_type"`
-		CanValidate    bool   `json:"can_validate"`
-		HasPhoneNumber bool   `json:"has_phone_number"`
-		RequestDetails []struct {
-			Name          string      `json:"name"`
-			Parameter     string      `json:"parameter"`
-			Description   interface{} `json:"description"`
-			IsRequired    bool        `json:"is_required"`
-			IsType        bool        `json:"is_type"`
-			InType        bool        `json:"in_type"`
-			IsAccount     int         `json:"is_account"`
-			IsAmount      int         `json:"is_amount"`
-			InValidate    bool        `json:"in_validate"`
-			Validator     string      `json:"validator"`
-			ConcatParams  interface{} `json:"concat_params"`
-			ParameterType string      `json:"parameter_type"`
-			Options       []struct {
-				Label string `json:"label"`
-				Value string `json:"value"`
-			} `json:"options"`
-		} `json:"request_details"`
-		ValidateParameters []struct {
-			Name          string      `json:"name"`
-			Parameter     string      `json:"parameter"`
-			Description   interface{} `json:"description"`
-			IsRequired    bool        `json:"is_required"`
-			IsType        bool        `json:"is_type"`
-			InType        bool        `json:"in_type"`
-			IsAccount     int         `json:"is_account"`
-			IsAmount      int         `json:"is_amount"`
-			InValidate    bool        `json:"in_validate"`
-			Validator     string      `json:"validator"`
-			ConcatParams  interface{} `json:"concat_params"`
-			ParameterType string      `json:"parameter_type"`
-			Options       []struct {
-				Label string `json:"label"`
-				Value string `json:"value"`
-			} `json:"options"`
-		} `json:"validate_parameters"`
-		TypeParameters []interface{} `json:"type_parameters"`
-		Route          struct {
+		ID                 string          `json:"id"`
+		Name               string          `json:"name"`
+		Description        string          `json:"description"`
+		Icon               string          `json:"icon"`
+		HasType            bool            `json:"has_type"`
+		CanValidate        bool            `json:"can_validate"`
+		HasPhoneNumber     bool            `json:"has_phone_number"`
+		RequestDetails     []BillParameter `json:"request_details"`
+		ValidateParameters []BillParameter `json:"validate_parameters"`
+		TypeParameters     []BillParameter `json:"type_parameters"`
+		Route              struct {
 			PercentCharge              string      `json:"percent_charge"`
 			InternationalPercentCharge string      `json:"international_percent_charge"`
 			FixedCharge                string      `json:"fixed_charge"`
@@ -81,26 +47,32 @@ type (
 			Name          string `json:"name"`
 			Slug          string `json:"slug"`
 		} `json:"partner"`
-		Subtitle     string      `json:"subtitle"`
-		UssdCode     interface{} `json:"ussd_code"`
-		AccountField struct {
-			Name          string      `json:"name"`
-			Parameter     string      `json:"parameter"`
-			Description   interface{} `json:"description"`
-			IsRequired    bool        `json:"is_required"`
-			IsType        bool        `json:"is_type"`
-			InType        bool        `json:"in_type"`
-			IsAccount     int         `json:"is_account"`
-			IsAmount      int         `json:"is_amount"`
-			InValidate    bool        `json:"in_validate"`
-			Validator     string      `json:"validator"`
-			ConcatParams  interface{} `json:"concat_params"`
-			ParameterType string      `json:"parameter_type"`
-			Options       []struct {
-				Label string `json:"label"`
-				Value string `json:"value"`
-			} `json:"options"`
-		} `json:"account_field"`
+		Subtitle     string        `json:"subtitle"`
+		UssdCode     interface{}   `json:"ussd_code"`
+		AccountField BillParameter `json:"account_field"`
+	}
+
+	// BillParameter schema
+	BillParameter struct {
+		Name          string      `json:"name"`
+		Parameter     string      `json:"parameter"`
+		Description   interface{} `json:"description"`
+		IsRequired    bool        `json:"is_required"`
+		IsType        bool        `json:"is_type"`
+		InType        bool        `json:"in_type"`
+		IsAccount     int         `json:"is_account"`
+		IsAmount      int         `json:"is_amount"`
+		InValidate    bool        `json:"in_validate"`
+		Validator     string      `json:"validator"`
+		ConcatParams  interface{} `json:"concat_params"`
+		ParameterType string      `json:"parameter_type"`
+		Options       []Options   `json:"options"`
+	}
+
+	// Options schema
+	Options struct {
+		Label string `json:"label"`
+		Value string `json:"value"`
 	}
 
 	// BillType schema
