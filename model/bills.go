@@ -80,9 +80,9 @@ type (
 		Name          string `json:"name"`
 		ProductCode   string `json:"product_code"`
 		Description   string `json:"description"`
-		Amount        int    `json:"amount"`
-		Validity      int    `json:"validity"`
-		InvoicePeriod int    `json:"invoice_period"`
+		Amount        string `json:"amount"`
+		Validity      string `json:"validity"`
+		InvoicePeriod string `json:"invoice_period"`
 	}
 
 	// VendBillResponse schema
