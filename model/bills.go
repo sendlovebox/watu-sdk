@@ -77,12 +77,13 @@ type (
 
 	// BillType schema
 	BillType struct {
-		Name          string `json:"name"`
-		ProductCode   string `json:"product_code"`
-		Description   string `json:"description"`
-		Amount        string `json:"amount"`
-		Validity      string `json:"validity"`
-		InvoicePeriod string `json:"invoice_period"`
+		Name          string      `json:"name"`
+		ProductCode   string      `json:"product_code"`
+		Description   string      `json:"description"`
+		Amount        interface{} `json:"amount"`
+		Validity      interface{} `json:"validity"`
+		InvoicePeriod interface{} `json:"invoice_period"`
+		Allowance     interface{} `json:"allowance"`
 	}
 
 	// VendBillResponse schema
