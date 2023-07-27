@@ -33,4 +33,7 @@ const (
 
 	// CountryNigeria string representation of Nigeria
 	CountryNigeria Country = "NG"
+
+	// RandomString random string
+	RandomString = "0000000000"
 )

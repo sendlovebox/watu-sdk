@@ -118,9 +118,11 @@ func (c *Call) GetBillTypes(ctx context.Context, billChannel string) ([]*model.B
 		Data []*model.BillType `json:"data"`
 	}{}
 	body := struct {
-		Channel string `json:"channel"`
+		Channel           string `json:"channel"`
+		CustomerAccountID string `json:"customer_account_id"`
 	}{
-		Channel: billChannel,
+		Channel:           billChannel,
+		CustomerAccountID: model.RandomString,
 	}
 
 	resp, err := c.client.R().
