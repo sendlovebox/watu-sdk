@@ -84,6 +84,7 @@ type (
 		Validity      interface{} `json:"validity"`
 		InvoicePeriod interface{} `json:"invoice_period"`
 		Allowance     interface{} `json:"allowance"`
+		TypeCode      interface{} `json:"type_code"`
 	}
 
 	// VendBillResponse schema
