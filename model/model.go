@@ -3,9 +3,9 @@ package model
 type (
 	// ErrorPayload schema
 	ErrorPayload struct {
-		HasError   bool   `mapstructure:"has_error" json:"has_error"`
-		StatusCode string `mapstructure:"status_code" json:"status_code"`
-		Message    string `mapstructure:"message" json:"message"`
+		HasError   bool        `mapstructure:"has_error" json:"has_error"`
+		StatusCode interface{} `mapstructure:"status_code" json:"status_code"`
+		Message    string      `mapstructure:"message" json:"message"`
 		Data       struct {
 			Status int `mapstructure:"status" json:"status"`
 		} `mapstructure:"data" json:"data"`

@@ -202,6 +202,7 @@ func (c *Call) VendBill(ctx context.Context, body interface{}) (model.VendBillRe
 		Post(endpoint)
 
 	if err != nil {
+		fL.Info().Str("err", fmt.Sprintf("%d", resp.StatusCode())).Msg(string(resp.Body()))
 		return model.VendBillResponse{}, errors.New(errorRes.Message)
 	} else if resp.StatusCode() != http.StatusOK {
 		fL.Info().Str("error_code", fmt.Sprintf("%d", resp.StatusCode())).Msg(string(resp.Body()))
